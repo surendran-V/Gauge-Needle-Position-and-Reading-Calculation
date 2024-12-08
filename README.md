@@ -94,6 +94,7 @@ The backend Flask application processes the uploaded or captured images, calcula
 
 ---
 ## Working Screenshots
+<img src="https://github.com/user-attachments/assets/70bed7cb-5454-466e-a7d0-6c0d51e20994" width="300" />	<img src="https://github.com/user-attachments/assets/07000945-5bc8-4207-9193-e4860f92f3e8" width="300" />
 
 
 ---
@@ -144,5 +145,8 @@ This feature will be revisited in the future to enable the app to function fully
 ---
 
 ## Video Demonstration 📽️ 
-Watch a video demonstration of the backend gauge reading in action:
+Mobile App Demonstration: https://drive.google.com/file/d/1AvzqivT7aLUVMVwPQ9r2B7HHB0zxiXTm/view?usp=drive_link
+
+Backend gauge reading in action: https://drive.google.com/file/d/15Wj-Ph_hM9jNiBYQsT5ZJxEtla0Zxgpu/view?usp=drive_link
+
 
