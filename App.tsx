@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, TextInput } from 'react-native';
+import { View, StyleSheet, Image, TextInput, Platform, Alert } from 'react-native';
 import { Button, Text, Snackbar } from 'react-native-paper';
 import LinearGradient from 'react-native-linear-gradient';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import * as ImagePicker from 'react-native-image-picker';
+import { PermissionsAndroid } from 'react-native';
 
 const App = () => {
   const [minValue, setMinValue] = useState<string>('');
@@ -12,8 +13,49 @@ const App = () => {
   const [gaugeReading, setGaugeReading] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const pickImage = async () => {
+  // Request permissions for Android
+  const requestCameraPermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.CAMERA,
+          {
+            title: 'Camera Permission',
+            message: 'This app needs access to your camera to take photos.',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (err) {
+        console.warn(err);
+        return false;
+      }
+    }
+    return true; // iOS handles permissions differently
+  };
+
+  const pickImageFromGallery = async () => {
     const result = await ImagePicker.launchImageLibrary({
+      mediaType: 'photo',
+    });
+
+    if (result.assets && result.assets[0]) {
+      const uri = result.assets[0].uri;
+      setImageUri(uri);
+      simulateGaugeReading();
+    }
+  };
+
+  const takePhoto = async () => {
+    const hasPermission = await requestCameraPermission();
+    if (!hasPermission) {
+      Alert.alert('Permission Denied', 'Camera permission is required to take photos.');
+      return;
+    }
+
+    const result = await ImagePicker.launchCamera({
       mediaType: 'photo',
     });
 
@@ -63,8 +105,11 @@ const App = () => {
             value={maxValue}
             onChangeText={setMaxValue}
           />
-          <Button mode="contained" onPress={pickImage} style={styles.button}>
-            Pick an Image
+          <Button mode="contained" onPress={pickImageFromGallery} style={styles.button}>
+            Pick an Image from Gallery
+          </Button>
+          <Button mode="contained" onPress={takePhoto} style={styles.button}>
+            Take a Photo
           </Button>
           {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
           {gaugeReading !== null && (
