@@ -19,17 +19,19 @@ This project demonstrates an analog gauge reading system integrated with a React
 
 The following technologies were selected to build a robust and efficient solution:  
 
-### **Frontend**  
-- React Native  
+### **Frontend**    
+<img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> 
+
 - React Native Paper for UI components  
 - React Native Linear Gradient for enhanced visuals  
 - React Native Image Picker for image upload and photo capture  
 - React Native Safe Area Context for consistent UI layout across devices  
 
+
 ### **Backend**  
-- Flask (Python)  
-- OpenCV for image processing  
-- NumPy and Pandas for mathematical operations and data handling  
+- Flask (Python)  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+- OpenCV for image processing  <img src="https://img.shields.io/badge/OpenCV-27338e?style=for-the-badge&logo=OpenCV&logoColor=white"/>
+- NumPy and Pandas for mathematical operations and data handling  <img src="https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white"/>      
 - Flask-CORS for cross-origin support  
 
 ---
@@ -38,10 +40,51 @@ The following technologies were selected to build a robust and efficient solutio
 
 ### Prerequisites  
 - Node.js and npm/yarn installed for the frontend  
-- Python (>=3.7) installed for the backend  
+- Python (>=3.7) installed for the backend  <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue"/>
 - A package manager like pip for Python dependencies  
 
 ---
+### Project Structure
+
+```bash
+├── android
+├── app.json
+├── app.py
+├── App.tsx
+├── babel.config.js
+├── Gemfile
+├── index.js
+├── ios
+├── jest.config.js
+├── metro.config.js
+├── node_modules
+├── package-lock.json
+├── package.json
+├── README.md
+├── requirements.txt
+├── tsconfig.json
+├── uploads
+├── utils
+└── __tests__
+```
+- **android/:** Contains Android-specific build files and configurations for the app.
+- **app.json:** Configuration file used to store app settings, such as build details and environment settings.
+- **app.py:** Python script for handling backend logic, for any server-side operations.
+- **App.tsx:** The main entry point of the React Native application, where the app's UI and logic are defined.
+- **index.js:** The entry point for the React Native app, typically responsible for rendering the main component.
+- **ios/:** Contains iOS-specific build files and configurations for the app.
+- **metro.config.js:** Configuration for the Metro bundler, which is used to bundle JavaScript and assets in React Native projects.
+- **node_modules/:** Contains all installed npm or yarn packages.
+- **package-lock.json:** Ensures consistent versions of dependencies across different environments by locking the versions of installed packages.
+- **package.json:** The metadata file for the project that defines dependencies, scripts, and other configurations.
+- **README.md:** Project documentation providing instructions on setup, usage, and general information about the project.
+- **requirements.txt:** Lists the Python dependencies required for the backend or server-side functionality.
+- **tsconfig.json:** Configuration file that helps TypeScript understand the project setup and transpile code correctly.
+- **uploads/:** Folder where uploaded files, such as images or documents, are stored.
+- **utils/:** Contains utility functions and helper scripts that can be reused across the app.
+- **__tests__/:** Directory containing unit tests, integration tests, and other test files used for the project.
+
+
 
 ### Frontend Setup  
 
@@ -134,13 +177,13 @@ This feature will be revisited in the future to enable the app to function fully
 
 ---
 
-## Checklist ✅ 
+## Checklist 
 
-- Frontend supports both image upload and photo capture.
-- Backend is prepared to handle image processing requests.
-- Thoroughly tested with different devices and scenarios.
-- Added error handling for edge cases like permission denial and invalid inputs.
-- Offline functionality remains a work in progress due to time constraints and the complexity of the task.
+- [x]  Frontend supports both image upload and photo capture.
+- [x] Backend is prepared to handle image processing requests.
+- [x] Thoroughly tested with different devices and scenarios.
+- [x] Added error handling for edge cases like permission denial and invalid inputs.
+- [ ] Offline functionality remains a work in progress due to time constraints and the complexity of the task.
 
 ---
 
