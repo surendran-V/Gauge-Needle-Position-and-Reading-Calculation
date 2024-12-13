@@ -90,7 +90,7 @@ The following technologies were selected to build a robust and efficient solutio
 
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/yourusername/analog-gauge-reader.git  
+   git clone https://github.com/surendran-V/Gauge-Needle-Position-and-Reading-Calculation.git  
    cd analog-gauge-reader/frontend
 2. Install Dependencies:  
    ```bash  
